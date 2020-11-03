@@ -13,13 +13,18 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
+  username: railsuser
+  password: railspass
   host: localhost
 
 development:
   <<: *default
   database: tasklist_development
+  username: railsuser
+  password: railspass
+  host: localhost
+  
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +32,9 @@ development:
 test:
   <<: *default
   database: tasklist_test
+  username: railsuser
+  password: railspass
+  host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,5 +58,6 @@ test:
 production:
   <<: *default
   database: tasklist_production
-  username: tasklist
-  password: <%= ENV['TASKLIST_DATABASE_PASSWORD'] %>
+  username: railsuser
+  password: railspass
+  host: localhost
