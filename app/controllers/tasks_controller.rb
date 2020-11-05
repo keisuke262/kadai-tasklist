@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
     #インスタンス変数を経由することで、ControllerからViewへ変数を渡すことができる。
     def index
-        @tasks = Task.all
+        @tasks = Task.all.page(params[:page]).per(5)
     end
     def show
     end
@@ -46,7 +46,9 @@ class TasksController < ApplicationController
 
     #Strong Parameter
     def task_params 
-        params.require(:task).permit(:content, :deadline)
+        params.require(:task).permit(:content, :deadline, :status)
     end
+
+
 end
 
