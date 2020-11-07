@@ -48,3 +48,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #kaminariというページネーション用のgemをインストール
 gem 'kaminari'
+
+#バグを修正するための支援ツール
+gem 'pry-byebug', group: :development
